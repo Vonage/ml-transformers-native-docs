@@ -92,9 +92,9 @@ Inheritance diagram for vonage::MediaProcessorBaseConfig:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9ca7f0eb867b8c48c4e71dbe6990ebe0"><td class="memItemLeft" align="right" valign="top"><a id="a9ca7f0eb867b8c48c4e71dbe6990ebe0" name="a9ca7f0eb867b8c48c4e71dbe6990ebe0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MediaProcessorBaseConfig</b> (const std::string &amp;tflite_model_path)</td></tr>
-<tr class="separator:a9ca7f0eb867b8c48c4e71dbe6990ebe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a388d25d3211ac2c6e174654d57f8a031"><td class="memItemLeft" align="right" valign="top"><a id="a388d25d3211ac2c6e174654d57f8a031" name="a388d25d3211ac2c6e174654d57f8a031"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MediaProcessorBaseConfig</b> (const std::vector&lt; std::string &gt; &amp;ml_model_paths)</td></tr>
+<tr class="separator:a388d25d3211ac2c6e174654d57f8a031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -107,8 +107,8 @@ virtual std::shared_ptr&lt; webrtc::BaseFrameTransformer&lt; webrtc::AudioFrame 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a49e1a0609d868cd2debced540f1bb8a7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvonage_1_1_media_processor_base_config.html#a49e1a0609d868cd2debced540f1bb8a7">tflite_model_path_</a></td></tr>
-<tr class="separator:a49e1a0609d868cd2debced540f1bb8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2cc05d1ebdd89755f5f33e187fcbba2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvonage_1_1_media_processor_base_config.html#aa2cc05d1ebdd89755f5f33e187fcbba2">ml_model_paths_</a></td></tr>
+<tr class="separator:aa2cc05d1ebdd89755f5f33e187fcbba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -122,8 +122,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>VonageAudioTransform
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Base class for transformer configurations. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a49e1a0609d868cd2debced540f1bb8a7" name="a49e1a0609d868cd2debced540f1bb8a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49e1a0609d868cd2debced540f1bb8a7">&#9670;&nbsp;</a></span>tflite_model_path_</h2>
+<a id="aa2cc05d1ebdd89755f5f33e187fcbba2" name="aa2cc05d1ebdd89755f5f33e187fcbba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2cc05d1ebdd89755f5f33e187fcbba2">&#9670;&nbsp;</a></span>ml_model_paths_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,7 +132,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>VonageAudioTransform
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string vonage::MediaProcessorBaseConfig::tflite_model_path_</td>
+          <td class="memname">std::vector&lt;std::string&gt; vonage::MediaProcessorBaseConfig::ml_model_paths_</td>
         </tr>
       </table>
   </td>
@@ -141,7 +141,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>VonageAudioTransform
   </tr>
 </table>
 </div><div class="memdoc">
-<p >File path to the selfie segmentation TFLite model file. </p>
+<p >Vector of file paths to the ML model files. </p>
 
 </div>
 </div>
