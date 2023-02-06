@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Vonage ML Transformers API reference documentation: vonage::VonageVideoTransformer Class Reference</title>
+<title>Vonage ML Transformers API reference documentation: vonage::TransformerInfoInterface Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,57 +62,34 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>vonage</b></li><li class="navelem"><a class="el" href="classvonage_1_1_vonage_video_transformer.html">VonageVideoTransformer</a></li>  </ul>
+<li class="navelem"><b>vonage</b></li><li class="navelem"><a class="el" href="classvonage_1_1_transformer_info_interface.html">TransformerInfoInterface</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="classvonage_1_1_vonage_video_transformer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">vonage::VonageVideoTransformer Class Reference</div></div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classvonage_1_1_transformer_info_interface-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">vonage::TransformerInfoInterface Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="ml__transformers_8h_source.html">ml_transformers.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for vonage::TransformerInfoInterface:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classvonage_1_1_transformer_info_interface.png" usemap="#vonage::TransformerInfoInterface_map" alt=""/>
+  <map id="vonage::TransformerInfoInterface_map" name="vonage::TransformerInfoInterface_map">
+<area href="classvonage_1_1_vonage_background_blur_video_transformer.html" alt="vonage::VonageBackgroundBlurVideoTransformer" shape="rect" coords="0,56,297,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a576e1bd3241c3a72934cf396e335d1fb"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; webrtc::BaseFrameTransformer&lt; webrtc::VideoFrame &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classvonage_1_1_vonage_video_transformer.html#a576e1bd3241c3a72934cf396e335d1fb">Create</a> (const <a class="el" href="classvonage_1_1_media_processor_video_config.html">MediaProcessorVideoConfig</a> &amp;config)</td></tr>
-<tr class="separator:a576e1bd3241c3a72934cf396e335d1fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a6124751d60beffa0aac1662a1494549c"><td class="memItemLeft" align="right" valign="top"><a id="a6124751d60beffa0aac1662a1494549c" name="a6124751d60beffa0aac1662a1494549c"></a>
+virtual const MLTransformerBaseConfig *&#160;</td><td class="memItemRight" valign="bottom"><b>GetConfig</b> () const =0</td></tr>
+<tr class="separator:a6124751d60beffa0aac1662a1494549c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Vonage video transformer helper class with factory function. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a576e1bd3241c3a72934cf396e335d1fb" name="a576e1bd3241c3a72934cf396e335d1fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a576e1bd3241c3a72934cf396e335d1fb">&#9670;&nbsp;</a></span>Create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::shared_ptr&lt; webrtc::BaseFrameTransformer&lt; webrtc::VideoFrame &gt; &gt; vonage::VonageVideoTransformer::Create </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classvonage_1_1_media_processor_video_config.html">MediaProcessorVideoConfig</a> &amp;&#160;</td>
-          <td class="paramname"><em>config</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >Create factory function.</p>
-<p >Creates transformer instances according to the config object set. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/ml_transformers/<a class="el" href="ml__transformers_8h_source.html">ml_transformers.h</a></li>
+<li>src/ml_transformers/<a class="el" href="_transformer_info_interface_8h_source.html">TransformerInfoInterface.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
