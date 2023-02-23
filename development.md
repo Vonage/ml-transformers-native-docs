@@ -193,8 +193,8 @@ any remote source (e.g. AWS S3).
 
 #### Pulling the code
 
-We build ANGLE version `chromium/4844`. We apply some changes on top of it. The
-patch we apply lives in this repo [here](./ml/angle_chromium_4844_windows_build.patch).
+We build ANGLE version `chromium/5481`. We apply some changes on top of it. The
+patch we apply lives in this repo [here](./ml/angle_chromium_5481_windows_build.patch).
 
 The process we follow so we have the sources ready to build the library is as
 follow (Note `depot_tools` tool suite has to be available in your PATH environment
@@ -203,9 +203,9 @@ variable):
 ```bash
 $ mkdir angle; cd angle
 $ fetch angle
-$ git checkout chromium/4844
+$ git checkout chromium/5481
 $ gclient sync --reset -D
-git apply <PATH_TO_ANGLE_CHROMIUM_4844_WINDOWS_BUILD_PATCH>
+git apply <PATH_TO_ANGLE_CHROMIUM_5481_WINDOWS_BUILD_PATCH>
 ```
 
 #### Building the library
@@ -214,10 +214,31 @@ Run the following commands to build the library as we need for Mediapipe.
 
 ```bash
 $ cd angle
-$ gn gen out/Release --args='target_cpu=\"x64\" is_component_build=false is_debug=false use_lld=false use_custom_libcxx=false'
+$ gn gen out/Release --args="target_cpu=\"x64\" is_component_build=false is_debug=false use_lld=false use_custom_libcxx=false angle_enable_d3d11=false angle_enable_d3d11_compositor_native_window=false angle_enable_d3d9=false angle_enable_gl_desktop_frontend=false angle_expose_wgl_entry_points=true"
 $ autoninja -C out/release libANGLE_static
 $ autoninja -C out/release libGLESv2_static
 $ autoninja -C out/release libEGL_static
+gn gen out/Debug --args="target_cpu=\"x64\" is_component_build=false is_debug=true use_lld=false use_custom_libcxx=false enable_iterator_debugging=true angle_enable_d3d11=false angle_enable_d3d11_compositor_native_window=false angle_enable_d3d9=false angle_enable_gl_desktop_frontend=false angle_expose_wgl_entry_points=true"
+autoninja -C out/debug libANGLE_static
+autoninja -C out/debug libGLESv2_static
+autoninja -C out/debug libEGL_static
+```
+
+#### Packing:
+Copy `angle.py` to angle root folder
+
+```bash
+python3 angle.py --verbose --platform windows
+```
+
+#### Testing:
+change mediapipe `WORKSPACE` angle part to:
+```bash
+new_local_repository(
+    name = "angle",
+    build_file = "@//third_party:angle.BUILD",
+    path = {PATH TO ANGLE ROOT FOLDER},
+)
 ```
 
 Note the commands above get the library built for the Windows `x64` arch we support.
