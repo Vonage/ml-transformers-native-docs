@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['backgroundblurtflitehelper_0',['BackgroundBlurTFLiteHelper',['../structvonage_1_1_background_blur_t_f_lite_helper.html',1,'vonage']]],
-  ['build_1',['Build',['../classvonage_1_1_mediapipe_graph.html#a7f52bbdf89d1f82f2957e3d71a8908fe',1,'vonage::MediapipeGraph']]]
+  ['mltransformeraudionoisesuppressionconfig_0',['MLTransformerAudioNoiseSuppressionConfig',['../classvonage_1_1_m_l_transformer_audio_noise_suppression_config.html',1,'vonage']]],
+  ['mltransformerbaseconfig_1',['MLTransformerBaseConfig',['../classvonage_1_1_m_l_transformer_base_config.html',1,'vonage']]],
+  ['mltransformervideoblurconfig_2',['MLTransformerVideoBlurConfig',['../classvonage_1_1_m_l_transformer_video_blur_config.html',1,'vonage']]]
 ];

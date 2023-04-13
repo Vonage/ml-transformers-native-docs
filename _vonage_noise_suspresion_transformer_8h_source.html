@@ -79,52 +79,21 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;ml_transformers.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define DTLN_BLOCK_LEN       512</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define DTLN_BLOCK_SHIFT     128</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define DTLN_FFT_OUT_SIZE    (DTLN_BLOCK_LEN / 2 + 1)</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span>webrtc {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">class </span>WavWriter;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classwebrtc_1_1_push_resampler.html">   19</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span><a class="code hl_class" href="classwebrtc_1_1_push_resampler.html">PushResampler</a>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span>vonage{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">struct </span>NoiseSuppressionTFLiteHelper;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classvonage_1_1_vonage_noise_suppression_transformer.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="classvonage_1_1_vonage_noise_suppression_transformer.html">VonageNoiseSuppressionTransformer</a> : <span class="keyword">public</span> webrtc::BaseFrameTransformer&lt;webrtc::AudioFrame&gt;{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="classvonage_1_1_vonage_noise_suppression_transformer.html">VonageNoiseSuppressionTransformer</a>(std::unique_ptr&lt;MLTransformerBaseConfig&gt; config);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classvonage_1_1_vonage_noise_suppression_transformer.html">~VonageNoiseSuppressionTransformer</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> Transform(webrtc::AudioFrame* video_frame) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">struct </span>OutResamplerData {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">int</span> sampleRate_ = 0;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">size_t</span> numberOfChannels_ = 0;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    } out_resampler_data_;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> InitTfLite(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; tflite_models_path);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::vector&lt;float&gt; ProcessAudio();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> RunTfLite();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> GetPhase(std::vector&lt;std::complex&lt;double&gt;&gt; fft_res, <span class="keywordtype">float</span>* in_mag, <span class="keywordtype">float</span>* in_phase, <span class="keywordtype">int</span> count);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::unique_ptr&lt;NoiseSuppressionTFLiteHelper&gt; tfLiteHelper_;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    std::unique_ptr&lt;webrtc::PushResampler&lt;int16_t&gt;&gt; resampler16Hz_;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    std::unique_ptr&lt;webrtc::PushResampler&lt;int16_t&gt;&gt; resamplerOut_;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    std::vector&lt;float&gt; audio_input_container_;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::vector&lt;int16_t&gt; clean_audio_buffer_;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    std::vector&lt;uint64_t&gt; full_proccess_time_;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::unique_ptr&lt;webrtc::WavWriter&gt; output_wav;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">bool</span> initialized_ = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
-<div class="ttc" id="aclassvonage_1_1_vonage_noise_suppression_transformer_html"><div class="ttname"><a href="classvonage_1_1_vonage_noise_suppression_transformer.html">vonage::VonageNoiseSuppressionTransformer</a></div><div class="ttdef"><b>Definition:</b> VonageNoiseSuspresionTransformer.h:26</div></div>
-<div class="ttc" id="aclasswebrtc_1_1_push_resampler_html"><div class="ttname"><a href="classwebrtc_1_1_push_resampler.html">webrtc::PushResampler</a></div><div class="ttdef"><b>Definition:</b> VonageNoiseSuspresionTransformer.h:19</div></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;tensorflow/lite/interpreter.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span>vonage{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classvonage_1_1_vonage_noise_suspresion_transformer.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classvonage_1_1_vonage_noise_suspresion_transformer.html">VonageNoiseSuspresionTransformer</a> : <span class="keyword">public</span> webrtc::BaseFrameTransformer&lt;webrtc::AudioFrame&gt;{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="classvonage_1_1_vonage_noise_suspresion_transformer.html">VonageNoiseSuspresionTransformer</a>(<span class="keyword">const</span> std::string&amp; tflite_model_path);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="classvonage_1_1_vonage_noise_suspresion_transformer.html">~VonageNoiseSuspresionTransformer</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> Transform(webrtc::AudioFrame* video_frame) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::unique_ptr&lt;tflite::Interpreter&gt; interpreter_;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+<div class="ttc" id="aclassvonage_1_1_vonage_noise_suspresion_transformer_html"><div class="ttname"><a href="classvonage_1_1_vonage_noise_suspresion_transformer.html">vonage::VonageNoiseSuspresionTransformer</a></div><div class="ttdef"><b>Definition:</b> VonageNoiseSuspresionTransformer.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

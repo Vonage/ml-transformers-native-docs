@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['backgroundblurtflitehelper_0',['BackgroundBlurTFLiteHelper',['../structvonage_1_1_background_blur_t_f_lite_helper.html',1,'vonage']]]
+  ['vonageaudiotransformer_0',['VonageAudioTransformer',['../classvonage_1_1_vonage_audio_transformer.html',1,'vonage']]],
+  ['vonagevideotransformer_1',['VonageVideoTransformer',['../classvonage_1_1_vonage_video_transformer.html',1,'vonage']]]
 ];
